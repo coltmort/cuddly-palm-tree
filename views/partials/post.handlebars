@@ -1,0 +1,30 @@
+      <article class="flex max-w-xl flex-col items-start justify-between bg-white p-5 rounded-lg">
+        <div class="flex items-center text-xs">
+          <time class="text-gray-500">{{createdAt}}</time>
+          {{!-- <a href="#" class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-gray-600 hover:bg-gray-100">Marketing</a> --}}
+        </div>
+        <div class="group relative max-h-fit">
+          <h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+            <a href="#">
+              <span class="absolute inset-0"></span>
+              {{title}}
+            </a>
+          </h3>
+          <p class="mt-5 text-sm leading-6 text-gray-600 max-h-40 truncate whitespace-normal">{{post}}</p>
+        </div>
+        <div class="relative mt-8 flex items-center ">
+          <img src="https://source.unsplash.com/200x200/?="+{{id}}+"&portrait" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+          <div class="text-sm leading-6">
+            <p class="font-semibold text-gray-900 px-4">
+              <a href="#">
+                <span class="absolute inset-0"></span>
+                {{#if user.name}}
+                {{user.name}}
+                {{else}}
+                anon
+                {{/if}}
+              </a>
+            </p>
+          </div>
+        </div>
+      </article>

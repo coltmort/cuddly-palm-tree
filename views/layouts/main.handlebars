@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+  <title>Blogisms</title>
+  <link rel="stylesheet" type="text/css" href="/css/output.css">
+</head>
+
+<body class="flex flex-col justify-center content-center bg-slate-100">
+  <header class="flex justify-between items-center py-5 m-0 bg-white">
+    <h1 class="font-bold ml-14 text-lg">
+      <a href="./" class="">Blogisms</a>
+    </h1>
+    <!-- Only display the logout button if the user is logged in -->
+    {{#if logged_in}}
+    <nav class="">
+      <button class="mr-14 border-2 border-slate-500 rounded-lg p-2 px-5" id="logout">logout</button>
+    </nav>
+    {{else}}
+     <nav class="">
+      <a href="http://localhost:3001/login">
+        <button class="mr-14 border-2 border-slate-500 rounded-lg p-2 px-5" id="login"> login</button>
+      </a>
+    </nav>
+    {{/if}}
+
+
+  </header>
+  <main >
+    {{{ body }}}
+  </main>
+  <footer>
+
+  </footer>
+
+  <!-- Only include the logout script if the user is logged in -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+
+</html>
