@@ -1,0 +1,12 @@
+<article class="mx-auto max-w-prose">
+    <div>
+        <h2 class="text-3xl py-5 font-black">{{post.title}}</h2>
+    </div>
+    <div class="pb-5">
+        <p>{{post.user.name}}, <span class="text-sm text-slate-500">{{post.createdAt}}</span></p>
+    </div>
+    <div class="py-5">
+        <p>{{post.post}}</p>
+    </div>
+    {{> comments}}
+</article>

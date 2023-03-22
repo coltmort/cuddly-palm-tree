@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
       include: {User, all: true}
 
   });
-  console.log(postData[0])
+
     let posts =  postData.map((post) => post.get({ plain: true }));
 
     for (let i = 0; i < posts.length; i++) {
@@ -19,7 +19,6 @@ router.get('/', async (req, res) => {
       element.createdAt = element.createdAt.toDateString()
     }
 
-    console.log(posts[0])
     res.render('home', {
       posts,
       // Pass the logged in flag to the template
