@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&family=Montserrat:wght@100;400;500;800;900&display=swap" rel="stylesheet">
   <title>Blogisms</title>
   <link rel="stylesheet" type="text/css" href="/css/output.css">
 </head>
@@ -17,7 +19,7 @@
     <!-- Only display the logout button if the user is logged in -->
     {{#if logged_in}}
     <nav class="">
-      <button class="mx-3 p-2 px-5">dashboard</button>
+      <button id="dashboard" class="mx-3 p-2 px-5">dashboard</button>
       <button class="mr-14 border-2 border-slate-500 rounded-lg p-2 px-5" id="logout">logout</button>
     </nav>
     {{else}}
@@ -40,8 +42,9 @@
   <!-- Only include the logout script if the user is logged in -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
+  <script src="/js/header.js"></script>
   {{/if}}
-  
+
 </body>
 
 </html>

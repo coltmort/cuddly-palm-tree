@@ -1,6 +1,13 @@
 <hr class="max-w-prose">
-<h3 class="my-5 text-2xl font-bold">Comments</h3>
-{{#each comments as |comment|}}
-{{comment.user}}
-{{comment}}
+<h3 class="my-5 text-2xl font-bold">{{data.post.user.name}}Comments</h3>
+{{#each data.comments as |comment|}}
+<p>
+    name
+{{comment.comment}}
+</p>
+<p>
+    comment
+{{comment.}}
+</p>
 {{/each}}
+<p>end comments</p>

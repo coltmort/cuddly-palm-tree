@@ -1,0 +1,23 @@
+<div class="flex flex-col items-center relative p-10">
+    <div class="dashboard max-w-prose ">
+        <button id="add-post" class="px-4 py-2 text-2xl font-bold rounded-lg bg-sky-500 text-white absolute top-10 right-14">Add a post</button>
+        <h1 class="font-bold text-4xl ">Hello {{data.name}},</h1>
+        <h2 class="font-bold text-2xl">Your Posts</h2>
+
+
+        {{#if data.Posts}}
+        <div id="post-grid" class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-y-8 gap-x-8 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            {{#each posts as |post|}}
+                {{> post}}
+            {{/each}}
+        </div>
+        {{!-- {{else}}
+        <div>
+            <p>Oh no! You don't have any posts yet. Write one today!</p>
+        </div> --}}
+        {{/if}}
+    </div>
+</div>
+
+<script src="/js/dashboard.js"></script>
+<script src="/js/main.js"></script>
