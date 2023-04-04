@@ -76,8 +76,6 @@ router.get('/dashboard', withAuth, async (req, res) => {
   })
 })
 
-router.get('/addpost', withAuth, async (req, res) => {
-  res.render('addpost')
-})
+
 
 module.exports = router;
