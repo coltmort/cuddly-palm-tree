@@ -2,7 +2,11 @@ const router = require('express').Router();
 const { Post, Comment, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.get("/:id", withAuth, async (req, res) => {
+router.get('/addpost', withAuth, async (req, res) => {
+    res.render('addpost')
+  })
+
+router.get("/:id(\\d+)", withAuth, async (req, res) => {
 
     let id = req.params.id
 
@@ -14,10 +18,14 @@ router.get("/:id", withAuth, async (req, res) => {
         let comments = commentsData.map((comment) => comment.get({plain: true}))
 
         comments.forEach((comment) => comment.createdAt = comment.createdAt.toDateString())
-        // console.log('comments', comments)
+
         let data = {post, comments}
-        res.render('postfocus', {data,
-        logged_in: req.session.logged_in,})
+        if(req.session.logged_in){
+            res.render('postfocus', {data,
+            logged_in: req.session.logged_in,})
+        } else {
+            res.render('login')
+        }
     } catch (err) {
         console.log(err)
         res.status(500).json(err);
@@ -56,9 +64,7 @@ router.delete('/:id', withAuth, async(req, res) => {
     res.status(200).send('deleted')
 })
 
-router.get('/addpost', withAuth, async (req, res) => {
-    res.render('addpost', { logged_in: req.session.logged_in})
-  })
+
 
 
 router.get('/updatepost/:id', withAuth, async(req, res) => {

@@ -4,7 +4,7 @@ document.querySelectorAll('#update').forEach(e => e.addEventListener('click', ha
 
 
 
-async function handleAddPost(){
+function handleAddPost(){
     document.location.assign('/api/post/addpost')
 
 }
@@ -17,10 +17,6 @@ async function handleUpdatePost(e){
 
 
     window.location.assign(`/api/post/updatepost/${post}`)
-    // const response = await fetch(`/api/post/updatepost/${post}`,{
-    //     method: 'GET',
-    //     headers: { 'Content-Type': 'application/json' }
-    // })
 
 }
 
