@@ -22,6 +22,15 @@ const loginFormHandler = async (event) => {
   }
 };
 
+function handleSignupClick(){
+  document.location.assign('/signup')
+  console.log('to signup')
+}
+
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
+
+document
+  .querySelector('#signup')
+  .addEventListener('click', handleSignupClick)

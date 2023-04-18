@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
     }
 
     // Verify the posted password with the password store in the database
-    const validPassword = await userData.checkPassword(req.body.password);
+    const validPassword = userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -36,6 +36,33 @@ router.post('/login', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+router.post('/signup', async (req, res) => {
+  try {
+    const {username, email, password} = req.body
+    const response = await User.create({name: username, email: email, password: password})
+    const userData = response.get({plain: true})
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.logged_in = true;
+
+      res.json({ user: userData, message: 'You are now logged in!' });
+    });
+  } catch (err) {
+
+  }
+})
+
+router.post('/login', async (req, res) => {
+  try{
+    let newUser = User.create({
+      name: req.body.name
+    })
+  } catch(err){
+
+  }
+})
 
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
